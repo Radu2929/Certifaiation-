@@ -1,63 +1,252 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Welcome to Radu's web page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radu Babusca - Azure Certified Developer</title>
   <style>
-    body {
-      color: white; /* All text in white */
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: blue; /* Blue background */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1 {
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      text-align: center; /* Center the header */
+      min-height: 100vh;
+      line-height: 1.6;
     }
-    img {
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      text-align: center;
+      padding: 40px 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #fff, #e0e7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    .achievement-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 120, 212, 0.8);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #e0e7ff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .cert-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .cert-image {
       max-width: 100%;
       height: auto;
-      border: 1px solid #ccc;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-top: 10px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
     }
+    
+    .cert-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .cv-section {
+      text-align: center;
+    }
+    
     .cv-link {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 15px;
-      background-color: #0078D4;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: linear-gradient(45deg, #0078D4, #005a9e);
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0, 120, 212, 0.3);
     }
+    
     .cv-link:hover {
-      background-color: #005a9e;
+      background: linear-gradient(45deg, #005a9e, #004578);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 120, 212, 0.4);
     }
-    section {
+    
+    .about-section {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .about-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #e0e7ff;
+    }
+    
+    .about-section p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
       margin-top: 30px;
+    }
+    
+    .skill-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      border-radius: 25px;
+      text-align: center;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .skill-badge:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+      
+      .about-section {
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <h1>Radu's web page</h1>
-  <p>Successfully Passed the AZ-900: Microsoft Azure Fundamentals Exam</p>
-
-  <section>
-    <h2>My Azure Certification</h2>
-    <img src="cert.png" alt="Azure Fundamentals Certificate">
-  </section>
-
-  <section>
-    <h2>Download My CV</h2>
-    <a class="cv-link" href="https://docs.google.com/document/d/1Gqnb7zv0c5RgxMuTOXA70xbQdQ-jm_vdnU5TKtsYz7o/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
-      📄 View My CV on Google Docs
-    </a>
-  </section>
-
-  <h2>Welcome to My First Website on Azure!</h2>
-  <p>This simple page marks two significant milestones in my cloud journey: earning my first Microsoft certification and deploying my very first web application on the powerful Azure platform.</p>
-  <p>This experience has been a fantastic learning opportunity, and I'm excited to continue exploring the vast capabilities of Microsoft Azure.</p>
-
+  <div class="container">
+    <header>
+      <h1>Radu Babusca</h1>
+      <p class="tagline">Cloud Developer & Azure Enthusiast</p>
+      <div class="achievement-badge">
+        🎉 Successfully Passed AZ-900: Microsoft Azure Fundamentals
+      </div>
+    </header>
+    
+    <div class="main-content">
+      <div class="card">
+        <h2>🏆 My Azure Certification</h2>
+        <div class="cert-container">
+          <img src="cert.png" alt="Microsoft Azure Fundamentals Certificate" class="cert-image">
+          <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
+            Microsoft Certified: Azure Fundamentals
+          </p>
+        </div>
+      </div>
+      
+      <div class="card cv-section">
+        <h2>📄 Professional Profile</h2>
+        <p>Explore my professional journey, skills, and experience in cloud technologies.</p>
+        <a class="cv-link" href="https://docs.google.com/document/d/1Gqnb7zv0c5RgxMuTOXA70xbQdQ-jm_vdnU5TKtsYz7o/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+          📄 View My CV
+        </a>
+      </div>
+    </div>
+    
+    <div class="about-section">
+      <h2>🚀 Welcome to My Azure Journey!</h2>
+      <p>This website represents two significant milestones in my cloud computing journey: earning my first Microsoft certification and successfully deploying my first web application on Azure.</p>
+      <p>I'm passionate about cloud technologies and excited to continue exploring the vast capabilities of Microsoft Azure. This is just the beginning of my adventure in the cloud!</p>
+      
+      <div class="skills-grid">
+        <div class="skill-badge">Microsoft Azure</div>
+        <div class="skill-badge">Cloud Computing</div>
+        <div class="skill-badge">Web Development</div>
+        <div class="skill-badge">HTML/CSS</div>
+        <div class="skill-badge">Azure Fundamentals</div>
+        <div class="skill-badge">Learning & Growth</div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
